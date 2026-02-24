@@ -1,0 +1,199 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--bg:#0f2027;
+--card:rgba(255,255,255,0.08);
+--text:white;
+--accent:#00f5ff;
+}
+
+.light{
+--bg:#f4f4f4;
+--card:rgba(0,0,0,0.05);
+--text:#111;
+--accent:#0077ff;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial, sans-serif;
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+cursor:none;
+transition:background 0.4s ease,color 0.4s ease;
+}
+
+/* PARTICLES */
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* CUSTOM CURSOR */
+.cursor{
+width:35px;
+height:35px;
+border:2px solid var(--accent);
+border-radius:50%;
+position:fixed;
+pointer-events:none;
+z-index:9999;
+transform:translate(-50%,-50%);
+transition:transform 0.08s ease;
+}
+
+.cursor-dot{
+width:6px;
+height:6px;
+background:var(--accent);
+border-radius:50%;
+position:fixed;
+pointer-events:none;
+z-index:9999;
+transform:translate(-50%,-50%);
+}
+
+/* BUTTONS */
+button{
+padding:10px 18px;
+border:none;
+border-radius:25px;
+background:var(--accent);
+cursor:pointer;
+font-weight:bold;
+transition:0.3s ease;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 15px var(--accent);
+}
+
+#theme-toggle,
+#music-toggle{
+position:fixed;
+top:20px;
+border-radius:50%;
+width:45px;
+height:45px;
+padding:0;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+#theme-toggle{right:20px;}
+#music-toggle{right:75px;}
+
+/* CARDS */
+.card{
+margin:120px auto;
+padding:40px;
+width:85%;
+max-width:900px;
+background:var(--card);
+border-radius:20px;
+backdrop-filter:blur(15px);
+text-align:center;
+transition:transform 0.3s ease, box-shadow 0.3s ease;
+transform-style:preserve-3d;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+h1{
+margin-bottom:20px;
+}
+
+h2{
+margin-bottom:15px;
+color:var(--accent);
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{text-shadow:0 0 5px var(--accent);}
+to{text-shadow:0 0 20px var(--accent);}
+}
+
+/* TYPING */
+.typing{
+font-size:32px;
+border-right:3px solid var(--accent);
+display:inline-block;
+white-space:nowrap;
+overflow:hidden;
+}
+
+/* REVEAL */
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* CAR */
+.car{
+position:fixed;
+bottom:30px;
+left:-200px;
+font-size:50px;
+animation:drive 8s linear infinite;
+}
+
+@keyframes drive{
+from{left:-200px;}
+to{left:110%;}
+}
+
+/* MOBILE OPTIMIZATION */
+@media(max-width:768px){
+
+.card{
+margin:80px 15px;
+padding:25px;
+}
+
+.typing{
+font-size:22px;
+}
+
+h2{
+font-size:20px;
+}
+
+button{
+padding:8px 14px;
+}
+
+#theme-toggle,
+#music-toggle{
+top:10px;
+width:40px;
+height:40px;
+}
+
+.car{
+font-size:35px;
+bottom:15px;
+}
+
+}
